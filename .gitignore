@@ -1,0 +1,7 @@
+.DS_Store
+/.idea/
+/.out/
+/.gradle/
+qa-gui.iml
+/out/
+baseAppium.iml

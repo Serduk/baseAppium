@@ -1,0 +1,70 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '1.2.71'
+}
+
+group 'my_group_id'
+version '1.0-SNAPSHOT'
+
+
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'io.appium', name: 'java-client', version: '2.1.0'
+
+    compile 'log4j:log4j:1.2.17'
+    compile 'org.slf4j:slf4j-api:1.7.5'
+    compile 'org.slf4j:slf4j-log4j12:1.7.5'
+
+    // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
+    compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5'
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+}
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+compileTestKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+
+// How to run it: ./gradlew clean test
+// example: https://www.swtestacademy.com/how-to-use-testng-with-gradle/
+test {
+    useTestNG() {
+        useDefaultListeners = true
+        suites 'src/test/suites/initial.xml'
+    }
+}
+
+// Run test: .gradlew clean smokeTest
+task smokeTest(type: Test) {
+    useTestNG() {
+        useDefaultListeners = true
+        suites 'src/test/suites/initial.xml'
+    }
+}
+
+task regressionTest(type: Test) {
+    useTestNG() {
+        useDefaultListeners = true
+        suites 'src/test/suites/regression.xml'
+    }
+}
+
+task foodLoggingTest(type: Test) {
+    useTestNG() {
+        useDefaultListeners = true
+        suites 'src/test/suites/logging.xml'
+    }
+}
