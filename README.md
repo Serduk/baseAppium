@@ -47,3 +47,35 @@ Location for all QA docs and scripts for the application(s)
   "app": "PATH_TO_APK/app-release.apk"
 }
 ```
+
+
+## One more:
+```java
+{
+  "deviceName": "emulator-5554",
+  "platformName": "Android",
+  "platformVersion": "9",
+  "appActivity": ".login.LoginActivity",
+  "appPackage": "com.APPLICATION_NAME.challenge",
+  "automationName": "UiAutomator2",
+  "app": "PATH_TO_APK/app-release.apk"
+}
+ 
+ 
+{
+  "deviceName": "avd",
+  "avd": "Nexus_S_API_28",
+  "platformName": "Android",
+  "automationName": "UiAutomator2",
+  "app": "PATH_TO_APK/app-release.apk"
+}
+ 
+{
+  "deviceName": "iPhone 11",
+  "platformName": "iOS",
+  "platformVersion": "13.3",
+  "app": "PATH_TO_APK/app-release.apk",
+  "automationName": "XCUITest",
+  "useNewWDA": "true"
+}
+```
